@@ -20,7 +20,6 @@ import com.aetherteam.genesis.entity.GenesisEntityTypes;
 import com.aetherteam.genesis.entity.projectile.PhoenixDart;
 import com.aetherteam.genesis.item.GenesisItems;
 import com.mojang.blaze3d.vertex.PoseStack;
-import io.wispforest.accessories.api.client.AccessoriesRendererRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.SlimeModel;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
@@ -41,6 +40,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.common.util.Lazy;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 import java.util.Set;
 import java.util.function.Supplier;
@@ -152,10 +152,10 @@ public class GenesisRenderers {
     }
 
     public static void registerCuriosRenderers() {
-        AccessoriesRendererRegistry.registerRenderer(GenesisItems.LUCKY_BELL.get(), PendantRenderer::new);
-        AccessoriesRendererRegistry.registerRenderer(GenesisItems.SWETTY_PENDANT.get(), PendantRenderer::new);
-        AccessoriesRendererRegistry.registerRenderer(GenesisItems.DAGGERFROST_LOCKET.get(), PendantRenderer::new);
-        AccessoriesRendererRegistry.registerRenderer(GenesisItems.MOUSE_EAR_CAP.get(), MouseEarCapRenderer::new);
+        CuriosRendererRegistry.register(GenesisItems.LUCKY_BELL.get(), PendantRenderer::new);
+        CuriosRendererRegistry.register(GenesisItems.SWETTY_PENDANT.get(), PendantRenderer::new);
+        CuriosRendererRegistry.register(GenesisItems.DAGGERFROST_LOCKET.get(), PendantRenderer::new);
+        CuriosRendererRegistry.register(GenesisItems.MOUSE_EAR_CAP.get(), MouseEarCapRenderer::new);
     }
 
     public static void addPlayerLayers(EntityRenderersEvent.AddLayers event) {

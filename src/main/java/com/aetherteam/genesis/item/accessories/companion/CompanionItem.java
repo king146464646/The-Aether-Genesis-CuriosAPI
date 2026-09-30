@@ -2,9 +2,9 @@ package com.aetherteam.genesis.item.accessories.companion;
 
 import com.aetherteam.aether.item.accessories.AccessoryItem;
 import com.aetherteam.genesis.entity.companion.CompanionMob;
-import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
+import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.function.Supplier;
 
@@ -17,19 +17,19 @@ public class CompanionItem<T extends CompanionMob> extends AccessoryItem impleme
     }
 
     /**
-     * @see CompanionAccessory#equip(ItemStack, SlotReference)
+     * @see CompanionAccessory#equip(ItemStack, SlotContext)
      */
     @Override
-    public void onEquip(ItemStack stack, SlotReference reference) {
-        CompanionAccessory.super.equip(stack, reference);
+    public void onEquip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
+        CompanionAccessory.super.equip(stack, slotContext);
     }
 
     /**
-     * @see CompanionAccessory#unequip(ItemStack, SlotReference)
+     * @see CompanionAccessory#unequip(ItemStack, SlotContext)
      */
     @Override
-    public void onUnequip(ItemStack stack, SlotReference reference) {
-        CompanionAccessory.super.unequip(stack, reference);
+    public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
+        CompanionAccessory.super.unequip(stack, slotContext);
     }
 
     /**

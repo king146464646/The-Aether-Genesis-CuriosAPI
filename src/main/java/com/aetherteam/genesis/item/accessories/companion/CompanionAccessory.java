@@ -2,7 +2,6 @@ package com.aetherteam.genesis.item.accessories.companion;
 
 import com.aetherteam.genesis.attachment.GenesisDataAttachments;
 import com.aetherteam.genesis.entity.companion.Companion;
-import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -11,6 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.UUID;
 
@@ -18,9 +18,9 @@ public interface CompanionAccessory<T extends Entity> {
     /**
      * Attaches a companion entity to the player for tracking using {@link com.aetherteam.genesis.attachment.GenesisPlayerAttachment}.
      *
-     * @param slotContext The {@link SlotReference} of the Companion accessory.
+     * @param slotContext The {@link SlotContext} of the Companion curio.
      */
-    default void equip(ItemStack stack, SlotReference slotContext) {
+    default void equip(ItemStack stack, SlotContext slotContext) {
         LivingEntity wearer = slotContext.entity();
         if (wearer.level() instanceof ServerLevel serverLevel) {
             Entity entity = this.getCompanionType().create(serverLevel, t -> this.applyCompanionInfo(t, wearer.getUUID()), wearer.blockPosition(), MobSpawnType.MOB_SUMMONED, false, false);
@@ -40,9 +40,9 @@ public interface CompanionAccessory<T extends Entity> {
     /**
      * Removes a companion entity from being tracked with the player through {@link com.aetherteam.genesis.attachment.GenesisPlayerAttachment}.
      *
-     * @param slotContext The {@link SlotReference} of the Companion accessory.
+     * @param slotContext The {@link SlotContext} of the Companion curio.
      */
-    default void unequip(ItemStack itemStack, SlotReference slotContext) {
+    default void unequip(ItemStack itemStack, SlotContext slotContext) {
         LivingEntity wearer = slotContext.entity();
         if (wearer instanceof Player player) {
             player.getData(GenesisDataAttachments.GENESIS_PLAYER).removeCompanion((entity) -> {

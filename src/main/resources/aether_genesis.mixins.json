@@ -24,6 +24,7 @@
     "client.ZephyrRendererMixin",
     "client.ZephyrTransparencyLayerMixin",
     "client.accessor.ElytraLayerAccessor",
+    "client.accessor.ModelPartAccessor",
     "client.accessor.PlayerModelAccessor",
     "client.accessor.SoundEngineAccessor"
   ],

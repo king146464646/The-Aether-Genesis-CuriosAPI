@@ -8,7 +8,6 @@ import com.aetherteam.genesis.item.accessories.companion.CompanionAccessory;
 import com.aetherteam.genesis.network.packet.GenesisPlayerSyncPacket;
 import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import com.aetherteam.nitrogen.network.packet.SyncPacket;
-import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import org.apache.commons.lang3.tuple.Triple;
@@ -54,10 +53,7 @@ public class GenesisPlayerAttachment implements INBTSynchable {
     }
 
     public void onChangeDimension(Player player) {
-        AccessoriesCapability accessories = AccessoriesCapability.get(player);
-        if (accessories != null) {
-            accessories.getEquipped((itemStack) -> itemStack.getItem() instanceof CompanionAccessory<?>).forEach((slot) -> ((CompanionAccessory<?>) slot.stack().getItem()).equip(slot.stack(), slot.reference()));
-        }
+        EquipmentUtil.getAccessories(player, (itemStack) -> itemStack.getItem() instanceof CompanionAccessory<?>).forEach((slot) -> ((CompanionAccessory<?>) slot.stack().getItem()).equip(slot.stack(), slot.slotContext()));
     }
 
     /**

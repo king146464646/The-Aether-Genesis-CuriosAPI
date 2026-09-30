@@ -140,8 +140,6 @@ public class AetherGenesis {
             GenesisBlocks.registerPots();
             GenesisBlocks.registerFlammability();
 
-            GenesisItems.registerAccessories();
-
             Regions.register(new GenesisRegion(ResourceLocation.fromNamespaceAndPath(MODID, MODID), GenesisConfig.COMMON.biome_weight.get()));
 
             BeyondParityMixinHooks.ROOMS_TO_REPLACE_CHESTS_IN.add(GenesisStructurePieceTypes.BRONZE_DUNGEON_ROOM.get());

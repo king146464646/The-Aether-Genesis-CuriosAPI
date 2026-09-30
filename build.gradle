@@ -4,8 +4,6 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.neoforged.moddev' version "${moddevgradle_version}"
-    id 'com.matthewprenger.cursegradle' version '[1.4,1.5)'
-    id 'com.modrinth.minotaur' version '[2,3)'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -75,13 +73,12 @@ configurations {
 }
 
 dependencies {
-//    implementation "com.aetherteam.aether:aether:${project.aether_version}"
-    implementation "blank:aether-1.21.1-1.5.10:neoforge"
+    implementation "com.aetherteam.aether:aether:${project.aether_version}"
 
     implementation "com.aetherteam.beyondparity:aether_beyond_parity:${project.beyond_parity_version}"
     implementation "com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}"
     implementation "com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}"
-    implementation "io.wispforest:accessories-neoforge:${project.accessories_version}+${project.minecraft_version}"
+    implementation "top.theillusivec4.curios:curios-neoforge:${project.curios_version}"
 
     implementation "maven.modrinth:aeroblender:${project.aeroblender_version}"
     implementation "com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}"
@@ -104,6 +101,9 @@ dependencies {
 }
 
 repositories {
+    // The Aether (Curios API fork) is published to mavenLocal by CI before this build runs.
+    // Must come first so this resolves to the local fork instead of the official Aether maven.
+    mavenLocal()
     maven { url = "https://maven.blamejared.com" }
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = "https://api.modrinth.com/maven" }
@@ -116,9 +116,6 @@ repositories {
     maven { url = "https://packages.aether-mod.net/Beyond-Parity" }
     maven { url = "https://packages.aether-mod.net/Nitrogen" }
     maven { url = "https://packages.aether-mod.net/Cumulus" }
-    flatDir {
-        dirs 'libs'
-    }
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
@@ -184,32 +181,6 @@ compileJava {
 //            }
 //        }
 //    }
-//}
-//
-//curseforge {
-//    project {
-//        apiKey = System.getenv("CURSEFORGE_TOKEN")
-//        id = "${project.curseforge_id}"
-//        releaseType = "${project.version_type}"
-//        changelog = file("$rootDir/docs/CHANGELOG.md")
-//        changelogType = "markdown"
-//        addGameVersion("${project.mc_version}")
-//        mainArtifact(tasks.jar) {
-//            displayName = "${project.mod_name} - ${version}"
-//        }
-//    }
-//}
-//
-//modrinth {
-//    token = System.getenv("MODRINTH_TOKEN")
-//    projectId = "${project.modrinth_id}"
-//    versionNumber = "${version}"
-//    versionType = "${project.version_type}"
-//    versionName = "${project.mod_name} - ${version}"
-//    changelog = new File("$rootDir/docs/CHANGELOG.md").text
-//    uploadFile = tasks.jar
-//    gameVersions = ["${project.mc_version}"]
-//    loaders = ["forge"]
 //}
 
 // IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.

@@ -3,13 +3,13 @@ package com.aetherteam.genesis.item.accessories.companion;
 import com.aetherteam.genesis.AetherGenesis;
 import com.aetherteam.genesis.entity.GenesisEntityTypes;
 import com.aetherteam.genesis.entity.companion.FleetingWisp;
-import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
+import top.theillusivec4.curios.api.SlotContext;
 
 /**
  * [CODE COPY] - {@link com.aetherteam.aether.item.accessories.cape.AgilityCapeItem}
@@ -27,12 +27,12 @@ public class FleetingStoneItem extends CompanionItem<FleetingWisp> {
     /**
      * Applies a step height modifier to the wearer as long as they aren't holding shift. If they are, the modifier is removed until they stop holding shift.
      *
-     * @param reference The {@link SlotReference} of the Accessory.
-     * @param stack The Curio {@link ItemStack}.
+     * @param slotContext The {@link SlotContext} of the curio.
+     * @param stack       The Curio {@link ItemStack}.
      */
     @Override
-    public void tick(ItemStack stack, SlotReference reference) {
-        LivingEntity livingEntity = reference.entity();
+    public void curioTick(SlotContext slotContext, ItemStack stack) {
+        LivingEntity livingEntity = slotContext.entity();
         AttributeInstance stepHeight = livingEntity.getAttribute(Attributes.STEP_HEIGHT);
         if (stepHeight != null) {
             if (!stepHeight.hasModifier(STEP_HEIGHT_LOCATION) && !livingEntity.isShiftKeyDown()) {
@@ -49,19 +49,19 @@ public class FleetingStoneItem extends CompanionItem<FleetingWisp> {
     /**
      * Removes the step height modifier when the Agility Cape is unequipped.
      *
-     * @param reference The {@link SlotReference} of the Accessory.
-     * @param stack The {@link ItemStack} of the Accessory.
+     * @param slotContext The {@link SlotContext} of the curio.
+     * @param stack       The {@link ItemStack} of the curio.
      */
     @Override
-    public void onUnequip(ItemStack stack, SlotReference reference) {
-        LivingEntity livingEntity = reference.entity();
+    public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
+        LivingEntity livingEntity = slotContext.entity();
         AttributeInstance stepHeight = livingEntity.getAttribute(Attributes.STEP_HEIGHT);
         if (stepHeight != null) {
             if (stepHeight.hasModifier(STEP_HEIGHT_LOCATION)) {
                 stepHeight.removeModifier(STEP_HEIGHT_LOCATION);
             }
         }
-        super.onUnequip(stack, reference);
+        super.onUnequip(slotContext, newStack, stack);
     }
 
     /**
