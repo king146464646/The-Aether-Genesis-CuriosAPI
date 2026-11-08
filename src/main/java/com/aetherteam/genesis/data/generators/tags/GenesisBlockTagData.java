@@ -121,6 +121,11 @@ public class GenesisBlockTagData extends BlockTagsProvider {
         this.tag(BlockTags.FIRE).add(
                 GenesisBlocks.COLD_FIRE.get());
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(GenesisBlocks.CONTINUUM_ORE.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(GenesisBlocks.DIVINE_CARVED_SLAB.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(GenesisBlocks.DIVINE_CARVED_STONE.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(GenesisBlocks.DIVINE_CARVED_STAIRS.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(GenesisBlocks.DIVINE_SENTRY_STONE.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(GenesisBlocks.DIVINE_CARVED_WALL.get());
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
                 GenesisBlocks.GREEN_AERCLOUD.get(),
                 GenesisBlocks.PURPLE_AERCLOUD.get(),

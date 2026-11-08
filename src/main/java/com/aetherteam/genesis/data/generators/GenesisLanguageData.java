@@ -4,6 +4,7 @@ import com.aetherteam.aether.data.providers.AetherLanguageProvider;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.genesis.AetherGenesis;
 import com.aetherteam.genesis.block.GenesisBlocks;
+import com.aetherteam.genesis.data.resources.registries.GenesisBiomes;
 import com.aetherteam.genesis.entity.GenesisEntityTypes;
 import com.aetherteam.genesis.item.GenesisItems;
 import net.minecraft.data.PackOutput;
@@ -99,45 +100,45 @@ public class GenesisLanguageData extends AetherLanguageProvider {
         this.addGeneric("death_seal.desc", "Repairing Seal: %s");
         this.addGeneric("companion_health.desc", "Companion Health: %1$s/%2$s");
 
-        this.addPerItemAbilityTooltip(GenesisItems.PHOENIX_DART_SHOOTER.get(), 1,"\u00A77Shoots:\u00A7r All Dart Types"); //todo resource pack for these or automatically enabling aether tooltips when genesis is loaded
+        this.addPerItemAbilityTooltip(GenesisItems.PHOENIX_DART_SHOOTER.get(), 1, "\u00A77Shoots:\u00A7r All Dart Types"); //todo resource pack for these or automatically enabling aether tooltips when genesis is loaded
 
-        this.addPerItemAbilityTooltip(GenesisItems.MOUSE_EAR_CAP.get(), 1,"\u00A7eCosmetic");
-        this.addPerItemAbilityTooltip(GenesisItems.MOUSE_EAR_CAP.get(), 2,"\u00A76Dyable");
-        this.addPerItemAbilityTooltip(GenesisItems.CAPE.get(), 1,"\u00A7eCosmetic");
-        this.addPerItemAbilityTooltip(GenesisItems.CAPE.get(), 2,"\u00A76Dyable");
-        this.addPerItemAbilityTooltip(GenesisItems.CRYSTAL_EXPERIENCE_BOTTLE.get(), 1,"\u00A79Ability:\u00A7r Stores Experience");
-        this.addPerItemAbilityTooltip(GenesisItems.DAGGERFROST_LOCKET.get(), 1,"\u00A79Ability:\u00A7r Snowballs Cause Damage");
-        this.addPerItemAbilityTooltip(GenesisItems.LUCKY_BELL.get(), 1,"\u00A79Ability:\u00A7r Mobs Drop Presents");
-        this.addPerItemAbilityTooltip(GenesisItems.CANDY_RING.get(), 1,"\u00A79Ability:\u00A7r Removes All Hunger");
-        this.addPerItemAbilityTooltip(GenesisItems.SKYROOT_RING.get(), 1,"\u00A79Ability:\u00A7r 15% Chance Double Drops");
-        this.addPerItemAbilityTooltip(GenesisItems.SWETTY_PENDANT.get(), 1,"\u00A79Ability:\u00A7r Gives Wall Sliding");
-        this.addPerItemAbilityTooltip(GenesisItems.DEXTERITY_CAPE.get(), 1,"\u00A79Ability:\u00A7r Gives Move Speed");
-        this.addPerItemAbilityTooltip(GenesisItems.ORB_OF_ARKENZUS.get(), 1,"\u00A79Ability:\u00A7r Gives Slowfall");
-        this.addPerItemAbilityTooltip(GenesisItems.BABY_PINK_SWET.get(), 1,"\u00A79Ability:\u00A7r Allows Swet Riding");
-        this.addPerItemAbilityTooltip(GenesisItems.ETHEREAL_STONE.get(), 1,"\u00A79Ability:\u00A7r Gives Invisibility");
-        this.addPerItemAbilityTooltip(GenesisItems.FLEETING_STONE.get(), 1,"\u00A79Ability:\u00A7r Gives High Steps");
-        this.addPerItemAbilityTooltip(GenesisItems.FANGRIN_CAPSULE.get(), 1,"\u00A79Ability:\u00A7r Melee Combat");
-        this.addPerItemAbilityTooltip(GenesisItems.DEATH_SEAL.get(), 1,"\u00A79Ability:\u00A7r Gives Resurrection");
-        this.addPerItemAbilityTooltip(GenesisItems.KRAISITH_CAPSULE.get(), 1,"\u00A79Ability:\u00A7r Ranged Combat");
-        this.addPerItemAbilityTooltip(GenesisItems.SOARING_STONE.get(), 1,"\u00A79Ability:\u00A7r Gives Move Speed");
-        this.addPerItemAbilityTooltip(GenesisItems.FROSTPINE_TOTEM.get(), 1,"\u00A79Ability:\u00A7r Gives Night Vision");
-        this.addPerItemAbilityTooltip(GenesisItems.FROSTBOUND_STONE.get(), 1,"\u00A79Ability:\u00A7r Generates Snowballs");
+        this.addPerItemAbilityTooltip(GenesisItems.MOUSE_EAR_CAP.get(), 1, "\u00A7eCosmetic");
+        this.addPerItemAbilityTooltip(GenesisItems.MOUSE_EAR_CAP.get(), 2, "\u00A76Dyable");
+        this.addPerItemAbilityTooltip(GenesisItems.CAPE.get(), 1, "\u00A7eCosmetic");
+        this.addPerItemAbilityTooltip(GenesisItems.CAPE.get(), 2, "\u00A76Dyable");
+        this.addPerItemAbilityTooltip(GenesisItems.CRYSTAL_EXPERIENCE_BOTTLE.get(), 1, "\u00A79Ability:\u00A7r Stores Experience");
+        this.addPerItemAbilityTooltip(GenesisItems.DAGGERFROST_LOCKET.get(), 1, "\u00A79Ability:\u00A7r Snowballs Cause Damage");
+        this.addPerItemAbilityTooltip(GenesisItems.LUCKY_BELL.get(), 1, "\u00A79Ability:\u00A7r Mobs Drop Presents");
+        this.addPerItemAbilityTooltip(GenesisItems.CANDY_RING.get(), 1, "\u00A79Ability:\u00A7r Removes All Hunger");
+        this.addPerItemAbilityTooltip(GenesisItems.SKYROOT_RING.get(), 1, "\u00A79Ability:\u00A7r 15% Chance Double Drops");
+        this.addPerItemAbilityTooltip(GenesisItems.SWETTY_PENDANT.get(), 1, "\u00A79Ability:\u00A7r Gives Wall Sliding");
+        this.addPerItemAbilityTooltip(GenesisItems.DEXTERITY_CAPE.get(), 1, "\u00A79Ability:\u00A7r Gives Move Speed");
+        this.addPerItemAbilityTooltip(GenesisItems.ORB_OF_ARKENZUS.get(), 1, "\u00A79Ability:\u00A7r Gives Slowfall");
+        this.addPerItemAbilityTooltip(GenesisItems.BABY_PINK_SWET.get(), 1, "\u00A79Ability:\u00A7r Allows Swet Riding");
+        this.addPerItemAbilityTooltip(GenesisItems.ETHEREAL_STONE.get(), 1, "\u00A79Ability:\u00A7r Gives Invisibility");
+        this.addPerItemAbilityTooltip(GenesisItems.FLEETING_STONE.get(), 1, "\u00A79Ability:\u00A7r Gives High Steps");
+        this.addPerItemAbilityTooltip(GenesisItems.FANGRIN_CAPSULE.get(), 1, "\u00A79Ability:\u00A7r Melee Combat");
+        this.addPerItemAbilityTooltip(GenesisItems.DEATH_SEAL.get(), 1, "\u00A79Ability:\u00A7r Gives Resurrection");
+        this.addPerItemAbilityTooltip(GenesisItems.KRAISITH_CAPSULE.get(), 1, "\u00A79Ability:\u00A7r Ranged Combat");
+        this.addPerItemAbilityTooltip(GenesisItems.SOARING_STONE.get(), 1, "\u00A79Ability:\u00A7r Gives Move Speed");
+        this.addPerItemAbilityTooltip(GenesisItems.FROSTPINE_TOTEM.get(), 1, "\u00A79Ability:\u00A7r Gives Night Vision");
+        this.addPerItemAbilityTooltip(GenesisItems.FROSTBOUND_STONE.get(), 1, "\u00A79Ability:\u00A7r Generates Snowballs");
 
-        this.addPerItemAbilityTooltip(GenesisItems.DARK_SWET_BALL.get(), 1,"\u00A79Ability:\u00A7r Grows Grass");
-        this.addPerItemAbilityTooltip(GenesisItems.DARK_SWET_BALL.get(), 2,"\u00A73Use:\u00A7r Right-Click Block");
-        this.addPerItemAbilityTooltip(GenesisItems.CONTINUUM_ORB.get(), 1,"\u00A79Ability:\u00A7r Grants Random Item");
-        this.addPerItemAbilityTooltip(GenesisItems.CONTINUUM_ORB.get(), 2,"\u00A73Use:\u00A7r Right-Click");
-        this.addPerItemAbilityTooltip(GenesisItems.DARK_GUMMY_SWET.get(), 1,"\u00A7aBuff:\u00A7r Fills Hunger");
-        this.addPerItemAbilityTooltip(GenesisItems.RAINBOW_STRAWBERRY.get(), 1,"\u00A7aBuff:\u00A7r Increases Mining Speed & Resistance");
+        this.addPerItemAbilityTooltip(GenesisItems.DARK_SWET_BALL.get(), 1, "\u00A79Ability:\u00A7r Grows Grass");
+        this.addPerItemAbilityTooltip(GenesisItems.DARK_SWET_BALL.get(), 2, "\u00A73Use:\u00A7r Right-Click Block");
+        this.addPerItemAbilityTooltip(GenesisItems.CONTINUUM_ORB.get(), 1, "\u00A79Ability:\u00A7r Grants Random Item");
+        this.addPerItemAbilityTooltip(GenesisItems.CONTINUUM_ORB.get(), 2, "\u00A73Use:\u00A7r Right-Click");
+        this.addPerItemAbilityTooltip(GenesisItems.DARK_GUMMY_SWET.get(), 1, "\u00A7aBuff:\u00A7r Fills Hunger");
+        this.addPerItemAbilityTooltip(GenesisItems.RAINBOW_STRAWBERRY.get(), 1, "\u00A7aBuff:\u00A7r Increases Mining Speed & Resistance");
 
-        this.addPerItemAbilityTooltip(GenesisItems.PURPLE_PARACHUTE.get(), 1,"\u00A79Ability:\u00A7r Forward Descent");
-        this.addPerItemAbilityTooltip(GenesisItems.PURPLE_PARACHUTE.get(), 2,"\u00A73Use:\u00A7r Right-Click");
-        this.addPerItemAbilityTooltip(GenesisItems.GREEN_PARACHUTE.get(), 1,"\u00A79Ability:\u00A7r Directional Descent");
-        this.addPerItemAbilityTooltip(GenesisItems.GREEN_PARACHUTE.get(), 2,"\u00A73Use:\u00A7r Right-Click");
-        this.addPerItemAbilityTooltip(GenesisItems.BLUE_PARACHUTE.get(), 1,"\u00A79Ability:\u00A7r Fast Elevation");
-        this.addPerItemAbilityTooltip(GenesisItems.BLUE_PARACHUTE.get(), 2,"\u00A73Use:\u00A7r Right-Click");
-        this.addPerItemAbilityTooltip(GenesisItems.CONTINUUM_BOMB.get(), 1,"\u00A79Ability:\u00A7r Creates Festive Party!");
-        this.addPerItemAbilityTooltip(GenesisItems.CONTINUUM_BOMB.get(), 2,"\u00A73Use:\u00A7r Right-Click");
+        this.addPerItemAbilityTooltip(GenesisItems.PURPLE_PARACHUTE.get(), 1, "\u00A79Ability:\u00A7r Forward Descent");
+        this.addPerItemAbilityTooltip(GenesisItems.PURPLE_PARACHUTE.get(), 2, "\u00A73Use:\u00A7r Right-Click");
+        this.addPerItemAbilityTooltip(GenesisItems.GREEN_PARACHUTE.get(), 1, "\u00A79Ability:\u00A7r Directional Descent");
+        this.addPerItemAbilityTooltip(GenesisItems.GREEN_PARACHUTE.get(), 2, "\u00A73Use:\u00A7r Right-Click");
+        this.addPerItemAbilityTooltip(GenesisItems.BLUE_PARACHUTE.get(), 1, "\u00A79Ability:\u00A7r Fast Elevation");
+        this.addPerItemAbilityTooltip(GenesisItems.BLUE_PARACHUTE.get(), 2, "\u00A73Use:\u00A7r Right-Click");
+        this.addPerItemAbilityTooltip(GenesisItems.CONTINUUM_BOMB.get(), 1, "\u00A79Ability:\u00A7r Creates Festive Party!");
+        this.addPerItemAbilityTooltip(GenesisItems.CONTINUUM_BOMB.get(), 2, "\u00A73Use:\u00A7r Right-Click");
 
         this.addPerItemAbilityTooltip(AetherItems.GOLDEN_PARACHUTE.get(), 1, "genesis", "\u00A79Ability:\u00A7r Fast Descent");
 
@@ -284,6 +285,11 @@ public class GenesisLanguageData extends AetherLanguageProvider {
         this.addGeneric("host_treasure_chest_locked", "This Treasure Chest must be unlocked with a Host Key.");
         this.addGeneric("guardian_treasure_chest_locked", "This Treasure Chest must be unlocked with a Guardian Key.");
         this.addGeneric("cog_treasure_chest_locked", "This Treasure Chest must be unlocked with a Cog Key.");
+
+        this.addBiome(GenesisBiomes.VIBRANT_FOREST, "Vibrant Forest");
+        this.addBiome(GenesisBiomes.VIBRANT_GROVE, "Vibrant Grove");
+        this.addBiome(GenesisBiomes.VIBRANT_MEADOW, "Vibrant Meadow");
+        this.addBiome(GenesisBiomes.VIBRANT_WOODLAND, "Vibrant Woodland");
 
         this.addConfig("title", "The Aether: Genesis Configuration");
         this.addConfig("section.aether.common.toml", "Common Settings");

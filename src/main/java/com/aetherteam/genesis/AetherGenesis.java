@@ -1,5 +1,7 @@
 package com.aetherteam.genesis;
 
+import com.aetherteam.aether.api.AetherAdvancementSoundOverrides;
+import com.aetherteam.aether.api.registers.AdvancementSoundOverride;
 import com.aetherteam.aether.data.generators.AetherRegistrySets;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.world.structurepiece.bronzedungeon.BronzeDungeonBuilder;
@@ -10,10 +12,7 @@ import com.aetherteam.genesis.block.GenesisBlocks;
 import com.aetherteam.genesis.client.GenesisSoundEvents;
 import com.aetherteam.genesis.client.particle.GenesisParticleTypes;
 import com.aetherteam.genesis.data.generators.*;
-import com.aetherteam.genesis.data.generators.tags.GenesisBiomeTagData;
-import com.aetherteam.genesis.data.generators.tags.GenesisBlockTagData;
-import com.aetherteam.genesis.data.generators.tags.GenesisEntityTagData;
-import com.aetherteam.genesis.data.generators.tags.GenesisItemTagData;
+import com.aetherteam.genesis.data.generators.tags.*;
 import com.aetherteam.genesis.entity.GenesisEntityTypes;
 import com.aetherteam.genesis.event.listeners.EntityListener;
 import com.aetherteam.genesis.event.listeners.LevelListener;
@@ -86,6 +85,10 @@ public class AetherGenesis {
     public static final String MODID = "aether_genesis";
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    public static ResourceLocation locate(String name) {
+        return ResourceLocation.fromNamespaceAndPath(MODID, name);
+    }
+
     public AetherGenesis(ModContainer mod, IEventBus bus, Dist dist) {
         bus.addListener(this::commonSetup);
         bus.addListener(this::registerPackets);
@@ -133,6 +136,8 @@ public class AetherGenesis {
         if (dist == Dist.CLIENT) {
             mod.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
         }
+
+        AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDES.register("bronze_miniboss", () -> new AdvancementSoundOverride(10, advancement -> advancement.id().equals(locate("labyrinth_eye")) || advancement.id().equals(locate("sentry_guardian")) || advancement.id().equals(locate("slider_host_mimic")), GenesisSoundEvents.UI_TOAST_AETHER_BRONZE_MINIBOSS));
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
@@ -188,6 +193,7 @@ public class AetherGenesis {
         generator.addProvider(event.includeServer(), new GenesisItemTagData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
         generator.addProvider(event.includeServer(), new GenesisEntityTagData(packOutput, lookupProvider, fileHelper));
         generator.addProvider(event.includeServer(), new GenesisBiomeTagData(packOutput, lookupProvider, fileHelper));
+        generator.addProvider(event.includeServer(), new GenesisSoundTagData(packOutput, lookupProvider, fileHelper));
 
         // pack.mcmeta
         generator.addProvider(true, new PackMetadataGenerator(packOutput).add(PackMetadataSection.TYPE, new PackMetadataSection(

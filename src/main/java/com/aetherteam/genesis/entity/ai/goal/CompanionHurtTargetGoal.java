@@ -36,10 +36,14 @@ public class CompanionHurtTargetGoal<T extends CompanionMob & Combative> extends
                 return false;
             } else {
                 this.ownerLastHurt = player.getLastHurtMob();
-                int i = player.getLastHurtMobTimestamp();
-                return i != this.timestamp
-                        && this.canAttack(this.ownerLastHurt, TargetingConditions.DEFAULT)
-                        && this.companion.wantsToAttack(this.ownerLastHurt, player);
+                if (this.ownerLastHurt == player) {
+                    return false;
+                } else {
+                    int i = player.getLastHurtMobTimestamp();
+                    return i != this.timestamp
+                            && this.canAttack(this.ownerLastHurt, TargetingConditions.DEFAULT)
+                            && this.companion.wantsToAttack(this.ownerLastHurt, player);
+                }
             }
         }
     }

@@ -83,6 +83,8 @@ public class GenesisSoundEvents {
     public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_AETHER_NIGHT = register("music.aether_night");
     public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_MINIBOSS = register("music.miniboss");
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> UI_TOAST_AETHER_BRONZE_MINIBOSS = register("ui.toast.genesis_miniboss");
+
     private static DeferredHolder<SoundEvent, SoundEvent> register(String name) {
         return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(AetherGenesis.MODID, name)));
     }

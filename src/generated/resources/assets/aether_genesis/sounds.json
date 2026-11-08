@@ -423,5 +423,10 @@
         "stream": true
       }
     ]
+  },
+  "ui.toast.genesis_miniboss": {
+    "sounds": [
+      "aether_genesis:achievement/achievement_miniboss"
+    ]
   }
 }

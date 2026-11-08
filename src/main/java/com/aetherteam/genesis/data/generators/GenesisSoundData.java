@@ -8,11 +8,18 @@ import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
 
 public class GenesisSoundData extends SoundDefinitionsProvider {
     public GenesisSoundData(PackOutput output, ExistingFileHelper helper) {
-        super(output,   AetherGenesis.MODID, helper);
+        super(output, AetherGenesis.MODID, helper);
     }
 
     @Override
     public void registerSounds() {
+        //Achievements
+        this.add(GenesisSoundEvents.UI_TOAST_AETHER_BRONZE_MINIBOSS,
+                definition().with(
+                        sound("aether_genesis:achievement/achievement_miniboss")
+                )
+        );
+
         // Items
         this.add(GenesisSoundEvents.ITEM_MUSIC_DISC_AERWHALE,
                 definition().with(sound("aether_genesis:item/records/aerwhale").stream())
