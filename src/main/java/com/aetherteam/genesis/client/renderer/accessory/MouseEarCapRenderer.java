@@ -37,6 +37,7 @@ public class MouseEarCapRenderer implements ICurioRenderer {
     public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack stack, SlotContext slotContext, PoseStack matrices, RenderLayerParent<T, M> renderLayerParent, MultiBufferSource buffer, int light, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         MouseEarCapItem mouseEarCapItem = (MouseEarCapItem) stack.getItem();
         int color = DyedItemColor.getOrDefault(stack, 10302259);
+        matrices.pushPose();
         if (renderLayerParent.getModel() instanceof HumanoidModel<?> humanoidModel) {
             transformToModelPart(matrices, humanoidModel.head);
             matrices.mulPose(Axis.XP.rotationDegrees(180));
@@ -45,6 +46,7 @@ public class MouseEarCapRenderer implements ICurioRenderer {
         }
         VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(mouseEarCapItem.getEarsTexture()));
         this.mouseEarCap.renderToBuffer(matrices, consumer, light, LivingEntityRenderer.getOverlayCoords(slotContext.entity(), 0.0F), color);
+        matrices.popPose();
     }
 
     /**
